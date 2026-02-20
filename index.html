@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SleepWell - Your AI-Powered Sleep Coach for Better Rest</title>
+    <meta name="description" content="SleepWell is an AI-powered sleep coach that monitors your sleep, provides personalized schedules, relaxation routines, and guided meditation for adults aged 20-45 seeking healthier sleep.">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/style.css"> <!-- Assuming a shared stylesheet for production -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic inline styles for quick visual structure and responsiveness. In a real project, this would be in style.css. */
+        body { font-family: 'Inter', sans-serif; margin: 0; color: #333; line-height: 1.6; background-color: #ffffff; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background-color: #f8f8f8; padding: 15px 0; border-bottom: 1px solid #eee; }
+        nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .logo { font-size: 1.8em; font-weight: 700; color: #4CAF50; text-decoration: none; }
+        nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { text-decoration: none; color: #555; font-weight: 600; transition: color 0.3s ease; }
+        nav ul li a:hover { color: #4CAF50; }
+        .cta-button { background-color: #4CAF50; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: 600; transition: background-color 0.3s ease; white-space: nowrap; }
+        .cta-button:hover { background-color: #45a049; }
+
+        .hero { background: linear-gradient(135deg, #e0f7fa, #bbdefb); text-align: center; padding: 80px 20px; }
+        .hero h1 { font-size: 3.2em; color: #2C3E50; margin-bottom: 15px; line-height: 1.1; }
+        .hero p { font-size: 1.3em; color: #555; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .hero .cta-button { font-size: 1.2em; padding: 15px 30px; }
+
+        .section { padding: 60px 0; text-align: center; }
+        .section:nth-of-type(even) { background-color: #f9f9f9; }
+        .section h2 { font-size: 2.5em; color: #2C3E50; margin-bottom: 40px; }
+        .section p.subtitle { font-size: 1.1em; color: #666; max-width: 800px; margin: -20px auto 40px auto; }
+
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .feature-item { background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); text-align: left; transition: transform 0.3s ease; }
+        .feature-item:hover { transform: translateY(-5px); }
+        .feature-item h3 { color: #4CAF50; font-size: 1.5em; margin-bottom: 15px; }
+        .feature-item p { color: #666; font-size: 1.1em; }
+        .icon { font-size: 2.5em; color: #4CAF50; margin-bottom: 15px; display: block; } /* Placeholder for actual icons */
+
+        .how-it-works-steps { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 40px; }
+        .step { flex: 1; min-width: 280px; max-width: 350px; background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); text-align: center; }
+        .step .step-number { font-size: 2.5em; color: #4CAF50; font-weight: 700; margin-bottom: 15px; }
+        .step h3 { font-size: 1.6em; color: #2C3E50; margin-bottom: 10px; }
+        .step p { color: #666; }
+
+        .final-cta { background-color: #2C3E50; color: white; padding: 80px 20px; text-align: center; }
+        .final-cta h2 { color: white; font-size: 2.8em; margin-bottom: 20px; }
+        .final-cta p { font-size: 1.3em; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto; }
+
+        footer { background-color: #333; color: white; padding: 40px 0; text-align: center; font-size: 0.9em; }
+        footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        footer p { margin: 0; }
+        footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 20px; }
+        footer ul li a { text-decoration: none; color: white; transition: color 0.3s ease; }
+        footer ul li a:hover { color: #4CAF50; }
+
+        /* Responsive Adjustments */
+        @media (max-width: 900px) {
+            nav ul li { margin-left: 20px; }
+            .hero h1 { font-size: 2.8em; }
+            .section h2 { font-size: 2.2em; }
+            .final-cta h2 { font-size: 2.4em; }
+        }
+
+        @media (max-width: 768px) {
+            nav { flex-direction: column; align-items: flex-start; }
+            nav .logo { margin-bottom: 15px; }
+            nav ul { margin-top: 0; width: 100%; justify-content: space-around; margin-bottom: 15px; }
+            nav ul li { margin: 0 5px; }
+            nav .cta-button { width: 100%; text-align: center; }
+
+            .hero { padding: 60px 20px; }
+            .hero h1 { font-size: 2.2em; }
+            .hero p { font-size: 1.1em; }
+            .hero .cta-button { font-size: 1.1em; padding: 12px 25px; }
+
+            .section { padding: 40px 0; }
+            .section h2 { font-size: 1.8em; }
+            .section p.subtitle { font-size: 1em; margin-bottom: 30px; }
+
+            .features-grid, .how-it-works-steps { grid-template-columns: 1fr; }
+            .step { margin-bottom: 20px; }
+
+            .final-cta { padding: 60px 20px; }
+            .final-cta h2 { font-size: 2em; }
+            .final-cta p { font-size: 1.1em; }
+
+            footer .container { flex-direction: column; }
+            footer ul { margin-top: 15px; justify-content: center; }
+            footer ul li { margin: 0 10px; }
+        }
+
+        @media (max-width: 480px) {
+            nav ul { flex-direction: column; align-items: center; }
+            nav ul li { margin: 10px 0; }
+            .hero h1 { font-size: 1.8em; }
+            .hero p { font-size: 1em; }
+            .section h2 { font-size: 1.6em; }
+            .final-cta h2 { font-size: 1.8em; }
+        }
+    </style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">SleepWell</a>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <a href="#get-started" class="cta-button">Start Your Free Trial</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Unlock Your Best Rest with SleepWell</h1>
+                <p>Tired of restless nights? SleepWell is your AI-powered sleep coach, delivering personalized routines, guided meditation, and data-driven insights to transform your sleep.</p>
+                <a href="#get-started" class="cta-button">Improve My Sleep Now</a>
+            </div>
+        </section>
+
+        <section id="features" class="section">
+            <div class="container">
+                <h2>How SleepWell Transforms Your Nights</h2>
+                <p class="subtitle">We combine cutting-edge AI with proven sleep science to give you the personalized support you deserve.</p>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="icon">✨</span>
+                        <h3>Personalized Sleep Schedules</h3>
+                        <p>Our AI analyzes your unique sleep patterns to create an optimal schedule, helping you wake up refreshed and energized.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="icon">🧘‍♀️</span>
+                        <h3>AI-Guided Relaxation & Meditation</h3>
+                        <p>Drift off peacefully with custom relaxation routines and AI-guided meditations designed to calm your mind before bed.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="icon">📊</span>
+                        <h3>Advanced Sleep Analytics</h3>
+                        <p>Understand your sleep like never before with detailed reports and insights from your wearable devices and smartphone sensors.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="icon">📈</span>
+                        <h3>Habit Tracking for Long-Term Health</h3>
+                        <p>Build sustainable sleep habits with intuitive tracking and gentle nudges that guide you towards consistent, quality rest.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="section">
+            <div class="container">
+                <h2>Your Journey to Better Sleep Starts Here</h2>
+                <p class="subtitle">SleepWell makes improving your sleep simple and effective, step by step.</p>
+                <div class="how-it-works-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <h3>Connect Your Devices</h3>
+                        <p>Seamlessly link your favorite wearable devices and smartphone sensors to SleepWell for accurate data.</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <h3>AI Analyzes Your Sleep</h3>
+                        <p>Our intelligent AI learns your unique patterns, identifying areas for improvement and personalized recommendations.</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <h3>Receive Personalized Coaching</h3>
+                        <p>Get custom schedules, relaxation techniques, and meditations tailored just for you to optimize your rest.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="get-started" class="final-cta">
+            <div class="container">
+                <h2>Ready to Experience Truly Restful Sleep?</h2>
+                <p>Join thousands of tech-savvy adults aged 20-45 who are transforming their nights and days with SleepWell. It's time to invest in your well-being.</p>
+                <a href="pricing.html" class="cta-button">Start Your Free Trial Today</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 SleepWell. All rights reserved.</p>
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Support</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+        </div>
+    </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
